@@ -1,34 +1,37 @@
-import { FlatCompat } from '@eslint/eslintrc';
+import js from '@eslint/js';
+import typescriptParser from '@typescript-eslint/parser';
+import tseslint from '@typescript-eslint/eslint-plugin';
+import { FlatCompat } from "@eslint/eslintrc";
 
-const compat = new FlatCompat();
+const compat = new FlatCompat({
+    recommendedConfig: js.configs.recommended
+});
 
 export default [
-  ...compat.extends('plugin:@angular-eslint/recommended', 'plugin:@angular-eslint/template/process-inline-templates'),
+  ...compat.extends('eslint:recommended', 'plugin:@typescript-eslint/recommended'),
   {
     files: ['**/*.ts', '**/*.tsx'],
     languageOptions: {
+      globals: {
+        browser: true,
+        es2021: true,
+        jasmine: true,
+      },
+      parser: typescriptParser,
       parserOptions: {
-        project: ['tsconfig.json'],
-        createDefaultProgram: true,
+        ecmaVersion: 12,
+        sourceType: 'module',
       },
     },
+    plugins: {
+      '@typescript-eslint': tseslint,
+    },
     rules: {
-      '@angular-eslint/directive-selector': [
-        'error',
-        { type: 'attribute', prefix: 'app', style: 'camelCase' },
-      ],
-      '@angular-eslint/component-selector': [
-        'error',
-        { type: 'element', prefix: 'app', style: 'kebab-case' },
-      ]
+      '@typescript-eslint/no-inferrable-types': 'off',
+      '@typescript-eslint/no-explicit-any': 'off',
     },
   },
-  ...compat.extends('plugin:@angular-eslint/template/recommended'),
   {
-    files: ['**/*.html'],
-    rules: {},
-  },
-  {
-    ignores: ['projects/**/*']
-  },
+    ignores: ['dist', 'test']
+  }
 ];

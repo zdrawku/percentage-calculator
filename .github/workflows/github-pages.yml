@@ -31,17 +31,21 @@ jobs:
         node-version: ${{ matrix.node-version }}
         # cache: 'npm' # enable after committing lock file from first install
     - run: npm i # replace with 'npm ci' after committing lock file from first install
-    - name: Set project name
-      run: echo "PROJECT_NAME=$(jq -r '.name' package.json)" >> $GITHUB_ENV
-    - name: Build project with dynamic base-href
-      run: npm run build -- --base-href "/${{ github.event.repository.name }}/"
+    - name: Update Router Navigation
+      run: |
+        find ./src -type f -name "*.ts" -exec sed -i "s|Router.go(\`/|Router.go(\`/${{ github.event.repository.name }}/|g" {} \;
+        find ./ -type f -name "vite.config.ts" -exec sed -i "s|navigateFallback: '/index.html'|navigateFallback: 'index.html'|g" {} \;
+    - run: npm run build -- --base=/${{ github.event.repository.name }}/
+    - name: Update base href in index.html
+      run: |
+        sed -i 's|<base href="[^"]*">|<base href="/${{ github.event.repository.name }}/">|' ./dist/index.html
     - name: Update Resource Paths
-      run: find ./dist/${{ env.PROJECT_NAME }}/browser -type f -name '*.js' -exec sed -i -e "s|/assets|/${{ github.event.repository.name }}/assets|g" -e "s|url('/assets|url('/${{ github.event.repository.name }}/assets|g" {} +
+      run: find ./dist -maxdepth 1 -type f ! -name 'sw*.js' ! -name 'workbox*.js' -name '*.js' -exec sed -i -e "s|/src/assets|/${{ github.event.repository.name }}/src/assets|g" -e "s|url('/src/assets|url('/${{ github.event.repository.name }}/src/assets|g" {} +
     - name: SPA routing handling
-      run: cp ./dist/${{ env.PROJECT_NAME }}/browser/index.html ./dist/${{ env.PROJECT_NAME }}/browser/404.html
+      run: cp ./dist/index.html ./dist/404.html
     - name: Upload build artifact to GitHub Pages
       uses: actions/upload-pages-artifact@v3
       with:
-        path: ./dist/${{ env.PROJECT_NAME }}/browser
+        path: ./dist
     - name: Deploy to GitHub Pages
       uses: actions/deploy-pages@v4
