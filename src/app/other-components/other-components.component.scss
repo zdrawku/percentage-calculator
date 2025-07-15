@@ -1,0 +1,40 @@
+:host {
+  height: 100%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: stretch;
+  align-content: flex-start;
+}
+.column-layout {
+  display: flex;
+  flex-direction: column;
+}
+.group {
+  justify-content: flex-start;
+  align-items: center;
+  align-content: flex-start;
+  gap: 20px;
+  position: relative;
+  margin: 50px;
+  flex-grow: 1;
+  flex-basis: 0;
+}
+.slider {
+  width: 500px;
+  height: max-content;
+  min-width: 50px;
+  max-width: 500px;
+}
+.user-input {
+  width: max-content;
+  height: max-content;
+}
+.date-picker {
+  height: max-content;
+  min-width: 120px;
+}
+.calendar {
+  width: max-content;
+  height: max-content;
+  min-width: max-content;
+}

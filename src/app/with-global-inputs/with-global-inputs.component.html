@@ -1,0 +1,237 @@
+<div class="column-layout group">
+  <div class="column-layout group_1">
+    <div class="row-layout group_2">
+      <div class="row-layout group_3">
+        <igx-icon class="icon">
+          percent
+        </igx-icon>
+        <h5 class="content">
+          Percentage calculator
+        </h5>
+      </div>
+      <div class="row-layout group_4">
+        <igx-input-group type="border" class="input">
+          <input type="text" [value]="inpVal1" igxInput (valueChange)="inpVal1 = $event" />
+          <label igxLabel>First value</label>
+        </igx-input-group>
+        <igx-input-group type="border" class="input">
+          <input type="text" [value]="inpVal2" igxInput (valueChange)="inpVal2 = $event" />
+          <label igxLabel>Second value</label>
+        </igx-input-group>
+      </div>
+    </div>
+    <div class="row-layout group_5">
+      <div class="row-layout group_6">
+        <h6 class="content">
+          What is
+        </h6>
+        <igx-input-group type="border" class="input_1">
+          <input type="number" [value]="inpVal1!" igxInput (valueChange)="inpVal1 = $event" />
+        </igx-input-group>
+        <h6 class="content">
+          % of
+        </h6>
+        <igx-input-group type="border" class="input_1">
+          <input type="number" [value]="inpVal2!" igxInput (valueChange)="inpVal2 = $event" />
+        </igx-input-group>
+        <igx-icon family="imx-icon" name="imx-equals" class="icon_1"></igx-icon>
+        <igx-input-group type="border" class="input_1">
+          <input type="text" igxInput />
+          <label igxLabel>Full Name</label>
+        </igx-input-group>
+      </div>
+      <div class="row-layout group_7">
+        <button igxButton="outlined" type="button" igxRipple class="button">
+          <igx-icon family="imx-icon" name="imx-calculator" class="icon_2"></igx-icon>
+          <span>Calculate</span>
+        </button>
+      </div>
+    </div>
+    <div class="row-layout group_5">
+      <div class="row-layout group_6">
+        <igx-input-group type="border" class="input_1">
+          <input type="number" [value]="inpVal1!" igxInput (valueChange)="inpVal1 = $event" />
+        </igx-input-group>
+        <h6 class="content">
+          is what percent of
+        </h6>
+        <igx-input-group type="border" class="input_1">
+          <input type="number" [value]="inpVal2!" igxInput (valueChange)="inpVal2 = $event" />
+        </igx-input-group>
+        <igx-icon family="imx-icon" name="imx-equals" class="icon_1"></igx-icon>
+        <igx-input-group type="border" class="input_1">
+          <igx-suffix>
+            <igx-icon class="icon_1">
+              percent
+            </igx-icon>
+          </igx-suffix>
+          <input type="number" igxInput />
+        </igx-input-group>
+      </div>
+      <div class="row-layout group_7">
+        <button igxButton="flat" type="button" igxRipple class="button">
+          <igx-icon family="imx-icon" name="imx-calculator" class="icon_2"></igx-icon>
+          <span>Calculate</span>
+        </button>
+      </div>
+    </div>
+    <div class="row-layout group_8">
+      <div class="row-layout group_7">
+        <h6 class="content">
+          What is the % increase/decrease from
+        </h6>
+        <igx-input-group type="border" class="input_2">
+          <input type="number" [value]="inpVal1!" igxInput (valueChange)="inpVal1 = $event" />
+        </igx-input-group>
+        <h6 class="content">
+          to
+        </h6>
+        <igx-input-group type="border" class="input_2">
+          <input type="number" [value]="inpVal2!" igxInput (valueChange)="inpVal2 = $event" />
+        </igx-input-group>
+        <igx-icon family="imx-icon" name="imx-equals" class="icon_1"></igx-icon>
+        <igx-input-group type="border" class="input_1">
+          <igx-suffix>
+            <igx-icon class="icon_1">
+              percent
+            </igx-icon>
+          </igx-suffix>
+          <input type="number" [value]="whatIsPercentChangeFromXtoY1?.result" igxInput />
+        </igx-input-group>
+      </div>
+      <div class="row-layout group_7">
+        <button igxButton="outlined" type="button" igxRipple class="button">
+          <igx-icon family="imx-icon" name="imx-calculator" class="icon_2"></igx-icon>
+          <span>Calculate</span>
+        </button>
+      </div>
+    </div>
+    <div class="row-layout group_9">
+      <h6 class="content">
+        Tips:
+      </h6>
+      <p class="ig-typography__subtitle-1 content">
+        Use tab to move to the next field. Use shift-tab to move to the previous field. Press enter to calculate.
+      </p>
+    </div>
+    <div class="column-layout group_10">
+      <div class="column-layout group_11">
+        <h6 class="content_2">
+          FAQ
+        </h6>
+        <p class="content_2">
+          This site is designed to provide efficient assistance in calculating percentages for diverse needs. Whether you're computing discounts, determining tips, or analyzing changes in value, our percentage calculator offers quick solutions.
+
+        </p>
+      </div>
+      <div class="column-layout group_11">
+        <h6 class="content_2">
+          What defines a percentage?
+        </h6>
+        <p class="content_2">
+          A percentage represents a fraction of 100 and is commonly utilized to express a portion of a whole or to compare quantities. It's often symbolized by "%". For instance, if a garage houses 100 cars and 25 of them are white, we can state that 25% of the cars in the garage are white.
+
+        </p>
+      </div>
+      <div class="column-layout group_11">
+        <h6 class="content_2">
+          How to compute a percentage?
+        </h6>
+        <p class="content_2">
+          Calculating a percentage typically involves dividing the part (the smaller value) by the whole (the larger value) and then multiplying the result by 100. This yields the percentage value ranging between 0 and 100. For example, if you possess 50 apples and wish to determine the percentage of red ones, with 20 being red, you would divide 20 by 50 to obtain 0.4, then multiply by 100 to get 40%.
+
+        </p>
+      </div>
+      <div class="column-layout group_11">
+        <h6 class="content_2">
+          Why are percentages significant?
+        </h6>
+        <p class="content_2">
+          Percentages find application in various scenarios, from computing discounts and taxes to tracking fluctuations in stock prices and economic metrics. Grasping the fundamentals of percentages aids in making well-informed decisions across personal finance and business management realms.
+        </p>
+      </div>
+      <igx-accordion class="accordion">
+        <igx-expansion-panel>
+          <igx-expansion-panel-body>
+            <p class="content_2">
+              This site is designed to provide efficient assistance in calculating percentages for diverse needs. Whether you're computing discounts, determining tips, or analyzing changes in value, our percentage calculator offers quick solutions.
+            </p>
+          </igx-expansion-panel-body>
+          <igx-expansion-panel-header>
+            <igx-expansion-panel-title>FAQ</igx-expansion-panel-title>
+          </igx-expansion-panel-header>
+        </igx-expansion-panel>
+        <igx-expansion-panel>
+          <igx-expansion-panel-body>
+            <p class="content_2">
+              A percentage represents a fraction of 100 and is commonly utilized to express a portion of a whole or to compare quantities. It's often symbolized by "%". For instance, if a garage houses 100 cars and 25 of them are white, we can state that 25% of the cars in the garage are white.
+
+            </p>
+          </igx-expansion-panel-body>
+          <igx-expansion-panel-header>
+            <igx-expansion-panel-title>What defines a percentage?</igx-expansion-panel-title>
+          </igx-expansion-panel-header>
+        </igx-expansion-panel>
+        <igx-expansion-panel>
+          <igx-expansion-panel-body>
+            <p class="content_2">
+              Calculating a percentage typically involves dividing the part (the smaller value) by the whole (the larger value) and then multiplying the result by 100. This yields the percentage value ranging between 0 and 100. For example, if you possess 50 apples and wish to determine the percentage of red ones, with 20 being red, you would divide 20 by 50 to obtain 0.4, then multiply by 100 to get 40%.
+
+            </p>
+          </igx-expansion-panel-body>
+          <igx-expansion-panel-header>
+            <igx-expansion-panel-title>How to compute a percentage?</igx-expansion-panel-title>
+          </igx-expansion-panel-header>
+        </igx-expansion-panel>
+        <igx-expansion-panel>
+          <igx-expansion-panel-body>
+            <p class="text">
+              Percentages find application in various scenarios, from computing discounts and taxes to tracking fluctuations in stock prices and economic metrics. Grasping the fundamentals of percentages aids in making well-informed decisions across personal finance and business management realms.
+            </p>
+          </igx-expansion-panel-body>
+          <igx-expansion-panel-header>
+            <igx-expansion-panel-title>Why are percentages significant?</igx-expansion-panel-title>
+          </igx-expansion-panel-header>
+        </igx-expansion-panel>
+      </igx-accordion>
+    </div>
+    <div class="column-layout group_12">
+      <div class="row-layout group_13">
+        <p class="ig-typography__subtitle-2 content">
+          Heading
+        </p>
+        <a href="https://www.appbuilder.dev/privacy-policy" target="_blank" class="ig-typography__body-1 hyperlink">
+          Privacy Policy
+        </a>
+        <a href="https://www.appbuilder.dev/cookie-policy" target="_blank" class="ig-typography__body-1 hyperlink">
+          Cookies
+        </a>
+        <a href="https://www.appbuilder.dev/terms-of-use" target="_blank" class="ig-typography__body-1 hyperlink">
+          Terms of Use
+        </a>
+        <a href="https://www.appbuilder.dev/license-agreement" target="_blank" class="ig-typography__body-1 hyperlink">
+          License Agreement
+        </a>
+      </div>
+      <div class="row-layout group_14">
+        <p class="ig-typography__subtitle-2 content_2">
+          Built with
+        </p>
+        <a href="https://www.infragistics.com/products/ignite-ui-angular" target="_blank" class="ig-typography__body-1 hyperlink_1">
+          Ignite UI
+        </a>
+        <p class="ig-typography__subtitle-2 content">
+          and
+        </p>
+        <a href="https://www.appbuilder.dev" target="_blank" class="ig-typography__body-1 hyperlink_1">
+          App Builder
+        </a>
+      </div>
+      <div class="row-layout group_15">
+        <p class="ig-typography__subtitle-2 content">
+          © Copyright 2024 App Builder
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
